@@ -1,0 +1,30 @@
+﻿<Window
+    x:Class="DifferentToolWindowStyles.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:DifferentToolWindowStyles"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Title="MainWindow"
+    Width="745"
+    Height="350"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <telerik:RadDocking>
+        <telerik:RadSplitContainer>
+            <telerik:RadPaneGroup x:Name="paneGroup1">
+                <telerik:RadPane Header="Pane 1">
+                    <telerik:RadCalendar DisplayDate="{Binding DisplayDate, Mode=TwoWay}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="DisplayDateChanged">
+                                <i:InvokeCommandAction Command="{Binding Path=DisplayDateCommand, Mode=OneWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </telerik:RadCalendar>
+                </telerik:RadPane>
+            </telerik:RadPaneGroup>
+        </telerik:RadSplitContainer>
+    </telerik:RadDocking>
+</Window>
