@@ -25,6 +25,17 @@
                     </telerik:RadCalendar>
                 </telerik:RadPane>
             </telerik:RadPaneGroup>
+            <telerik:RadPaneGroup>
+                <telerik:RadPane>
+                    <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding Path=SelectListItemCommand, Mode=OneWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListBox>
+                </telerik:RadPane>
+            </telerik:RadPaneGroup>
         </telerik:RadSplitContainer>
     </telerik:RadDocking>
 </Window>
